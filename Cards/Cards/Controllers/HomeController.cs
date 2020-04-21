@@ -24,12 +24,12 @@ namespace Cards.Controllers
         //when everything's done
         public async Task<IActionResult> Index()
         {
-             
+
             var client = new HttpClient();
             client.BaseAddress = new Uri("https://deckofcardsapi.com");
             client.DefaultRequestHeaders.UserAgent.ParseAdd("Mozilla/5.0 (compatible; GrandCircus/1.0)");
 
-            
+
             var response = await client.GetAsync("api/deck/new/shuffle/?deck_count=1");
 
             var cards = await response.Content.ReadAsAsync<CardPlay>();

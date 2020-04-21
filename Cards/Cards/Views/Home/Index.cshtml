@@ -1,8 +1,9 @@
-﻿@model CardPlay
+﻿@model Cards.Models.CardPlay.Card;
 
 @{
     ViewData["Title"] = "ViewCards";
-    int numItems = Model.Cards.Length;
+    int numItems = Model.Value.Length;
+    //int numItems = 52;
 }
 
 <h1>View Cards</h1>
@@ -12,8 +13,9 @@
     {
         <li>
 
-            <img src="@Model.[i].Image" />
+            <img src="@Model[i].Image" />
+            <em>@Model.Cards[i].Value of @Model.Cards[i].Suit</em>
         </li>
-        <strong>@Model.Cards[i].Value of @Model.Cards[i].Suit</strong>
+        
     }
 </ul>
